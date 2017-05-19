@@ -68,7 +68,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/twrp.fstab
 
 # TWRP - CRYPTO
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := $(DEVICE_PATH)/cryptfs_hw
 
 # TWRP - Remove mouse pointer
 TW_INPUT_BLACKLIST := "hbtp_vm"
