@@ -13,4 +13,4 @@
 /efsc        emmc    /dev/block/bootdevice/by-name/fsc          flags=backup=1;subpartitionof=/efs1
 
 /external_sd	vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=display="MicroSD";storage;wipeingui;removable
-/usb_otg     auto    /dev/block/sda1     /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable
+/usb_otg      auto    /dev/block/sda1     /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable
