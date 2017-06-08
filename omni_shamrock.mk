@@ -22,12 +22,3 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/google/shamrock/full_shamrock.mk)
 
 PRODUCT_NAME := omni_shamrock
-
-RODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/root/fstab.qcom:recovery/root/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/root/init.qcom.bt.sh:recovery/root/init.qcom.bt.sh \
-    $(LOCAL_PATH)/rootdir/root/init.qcom.power.rc:recovery/root/init.qcom.power.rc \
-    $(LOCAL_PATH)/rootdir/root/init.qcom.rc:recovery/root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/root/init.qcom.usb.rc:recovery/root/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/root/init.target.rc:recovery/root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/root/ueventd.qcom.rc:recovery/root/ueventd.qcom.rc 
