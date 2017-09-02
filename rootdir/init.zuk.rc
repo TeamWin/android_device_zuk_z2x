@@ -1,0 +1,117 @@
+# Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+
+import /init.log.rc
+
+on init
+    #Change mode for fpc1155
+    chown system system /sys/devices/soc/soc:fpc1020/irq
+    chmod 0660 /sys/devices/soc/soc:fpc1020/irq
+    chown system system /sys/devices/soc/soc:fpc1020/wakeup
+    chmod 0660 /sys/devices/soc/soc:fpc1020/wakeup
+    chown system system /sys/devices/soc/soc:fpc1020/key
+    chmod 0660 /sys/devices/soc/soc:fpc1020/key
+    chown system system /sys/devices/soc/soc:fpc1020/wl
+    chmod 0660 /sys/devices/soc/soc:fpc1020/wl
+    chown system system /sys/devices/soc/soc:fpc1020/screen
+    chmod 0660 /sys/devices/soc/soc:fpc1020/screen
+    chown system system /sys/module/dwc3/parameters/usb30_disabled
+    chmod 0660 /sys/module/dwc3/parameters/usb30_disabled
+    chown system system /sys/class/leds/led:rgb_red/brightness
+    chmod 0660 /sys/class/leds/led:rgb_red/brightness
+    chown system system /sys/class/leds/led:rgb_green/brightness
+    chmod 0660 /sys/class/leds/led:rgb_green/brightness
+    chown system system /sys/class/leds/led:rgb_blue/brightness
+    chmod 0660 /sys/class/leds/led:rgb_blue/brightness
+    chown system system /sys/class/leds/led:rgb_blue/rgbbreath
+    chmod 0660 /sys/class/leds/led:rgb_blue/rgbbreath
+    chown system system /sys/devices/soc/6a00000.ssusb/power/control
+    chmod 0660 /sys/devices/soc/6a00000.ssusb/power/control
+    # BEGIN cuigq1 20160127 add for ZBROW-185 hotswap gpio
+    write /sys/class/gpio/export 108
+#add for board test
+    chown root root /dev/i2c-5
+    chmod 0660 /dev/i2c-5
+
+#add for launcher layout db by xingqx
+    chmod 0666 /system/etc/launcher.db
+
+#add for goodix_fp device by shimg1
+    chown system system /dev/goodix_fp
+    chmod 0660 /dev/goodix_fp
+
+#add for max86x00 by niuli1
+    chown system system /sys/class/sensors/ppg/eol_test
+    chown system system /sys/class/sensors/ppg/eol_test_result
+    chown system system /sys/class/sensors/ppg/eol_test_status
+    chown system system /sys/class/sensors/ppg/led_current
+    chown system system /sys/class/sensors/ppg/led_current1
+    chown system system /sys/class/sensors/ppg/led_current2
+    chown system system /sys/class/sensors/ppg/led_current3
+    chown system system /sys/class/sensors/ppg/led_current4
+    chown system system /sys/class/sensors/uv/uv_eol_test
+
+#added touch gesture wake node permission
+    chown system /sys/devices/virtual/touch/tp_dev/gesture_on
+
+#for factory properties
+service wcg_mac_tool /sbin/wcg_mac_tool
+	class late_start
+	user root
+	disabled
+	oneshot
+	seclabel u:r:wpa:s0
+
+#FIDO service
+service fidoca /system/vendor/bin/fidoca
+    class main
+    user system
+    group system
+
+#IFAA service
+service ifaad /system/bin/ifaad
+	class late_start
+	user system
+	group system
+
+#Goodix fingerprint service
+service gx_fpd /system/bin/gx_fpd
+    class late_start
+    user system
+    group system
+
+on property:sys.boot_completed=1
+	start wcg_mac_tool
+	write /sys/class/leds/wled/brightness 0
+
+# It's set in "bootanimation_main.cpp" when shutdown charging.
+# service "qcom-post-boot" is defined in [init.qcom.rc] on Qcom platform for CPU frequence configuration.
+on property:sys.shutdown_charging=1
+    start qcom-post-boot
+

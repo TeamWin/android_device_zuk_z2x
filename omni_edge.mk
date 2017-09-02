@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/google/shamrock
+LOCAL_PATH := device/zuk/edge
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-$(call inherit-product, device/google/shamrock/full_shamrock.mk)
+$(call inherit-product, device/zuk/edge/full_edge.mk)
 
-PRODUCT_NAME := omni_shamrock
+PRODUCT_NAME := omni_edge

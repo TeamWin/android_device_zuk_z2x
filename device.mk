@@ -14,15 +14,18 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/google/shamrock
+LOCAL_PATH := device/zuk/edge
 
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
+    init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.bt.sh \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
+    init.target.rc \
+    init.usb.rc \
+    init.zuk.rc \
+    init.zuk.usb.rc \
+    init.zuk.usb.sh \
     twrp.fstab \
     ueventd.qcom.rc

@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/google/shamrock/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := shamrock
-PRODUCT_NAME := full_shamrock
-PRODUCT_BRAND := Google
-PRODUCT_MANUFACTURER := Google
+PRODUCT_DEVICE := edge
+PRODUCT_NAME := full_edge
+PRODUCT_BRAND := ZUK
+PRODUCT_MANUFACTURER := ZUK
