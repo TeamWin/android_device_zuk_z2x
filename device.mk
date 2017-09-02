@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/zuk/edge
+LOCAL_PATH := device/zuk/z2x
 
 # Init scripts
 PRODUCT_PACKAGES += \

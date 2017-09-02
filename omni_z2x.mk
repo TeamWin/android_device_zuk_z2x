@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/zuk/edge
+LOCAL_PATH := device/zuk/z2x
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-$(call inherit-product, device/zuk/edge/full_edge.mk)
+$(call inherit-product, device/zuk/z2x/full_z2x.mk)
 
-PRODUCT_NAME := omni_edge
+PRODUCT_NAME := omni_z2x
