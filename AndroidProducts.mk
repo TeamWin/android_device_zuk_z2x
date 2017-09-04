@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_edge.mk \
-    $(LOCAL_DIR)/omni_edge.mk
+    $(LOCAL_DIR)/full_z2x.mk \
+    $(LOCAL_DIR)/omni_z2x.mk
 

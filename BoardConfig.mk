@@ -87,8 +87,6 @@ TW_SKIP_SYSTEM_RO_PAGE := true
 TW_THEME := portrait_hdpi
 
 # TWRP - Encrypt / Decrypt Support
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_SWV8_DISK_ENCRYPTION := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_INCLUDE_NTFS_3G := true
 

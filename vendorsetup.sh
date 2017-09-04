@@ -1,1 +1,1 @@
-add_lunch_combo omni_shamrock-userdebug
+add_lunch_combo omni_z2x-userdebug
