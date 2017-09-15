@@ -17,6 +17,7 @@
 LOCAL_PATH := device/zuk/z2x
 
 # Init scripts
+
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
@@ -29,3 +30,17 @@ PRODUCT_PACKAGES += \
     init.zuk.usb.sh \
     twrp.fstab \
     ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.qcom.rc:system/etc/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.sensors.sh:root/init.qcom.sensors.sh \
+    $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/init.usb.rc:root/init.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.zuk.rc:root/init.zuk.rc \
+    $(LOCAL_PATH)/rootdir/init.zuk.usb.rc:root/init.zuk.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.zuk.usb.sh:root/init.zuk.usb.sh \
+    $(LOCAL_PATH)/rootdir/etc/twrp.fstab:root/twrp.fstab \
+    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc
+
