@@ -73,12 +73,14 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_DEVICE_VERSION := 0 by Rygebin
 TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_INCLUDE_CRYPTO := true
 TWRP_INCLUDE_LOGCAT := true
 TW_SKIP_SYSTEM_RO_PAGE := true
 TW_THEME := portrait_hdpi
+
 
 # TWRP - Encrypt / Decrypt Support
 BOARD_SUPPRESS_SECURE_ERASE := true
